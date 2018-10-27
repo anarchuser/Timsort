@@ -11,6 +11,8 @@
 #include "stdsort.h"
 #include "merge.h"
 
+#include <stdio.h>
+
 void mergeSort (int * arr, int length, bool order)
 {
 	divide(arr, 0, length - 1, order);
@@ -18,6 +20,9 @@ void mergeSort (int * arr, int length, bool order)
 
 void divide (int * arr, int left, int right, bool order)
 {
+
+	printf("|%i|%i|%i|%i| ", arr[0], left, right, order);
+	return;/*
 	// Check wether the right boundary is larger than the left one; otherwise length(arr) equals one
 	if (left < right)
 	{
@@ -30,11 +35,12 @@ void divide (int * arr, int left, int right, bool order)
 		
 		// Merges the subarrays together
 		merge(arr, left, middle, right, order);
-	}
+	}*/
 }
-
 void merge (int * arr, int left, int middle, int right, bool order)
 {
+	
+	printf("%i, %i, %i, %i, %i", arr[0], left, middle, right, order);
 	// Length of the subarrays and the main one
 	int len1 = middle - left;
 	int len2 = right - (middle + 1);
@@ -75,7 +81,6 @@ void merge (int * arr, int left, int middle, int right, bool order)
 			ind2++;
 		}
 	}
-
 }
 
 void ascMergeSort (int * arr, int length)
