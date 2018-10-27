@@ -2,7 +2,7 @@
 CC = clang
 
 # flags to pass compiler
-CFLAGS = -fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wshadow
+CFLAGS = -fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -std=c11
 
 # name for executable
 EXE = sort
