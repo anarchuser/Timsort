@@ -1,6 +1,6 @@
-#include "../../Headers/Sorts/stdsort.h"
-#include "../../Headers/Sorts/insertion.h"
-#include "../../Headers/Sorts/merge.h"
+#include "stdsort.h"
+#include "insertion.h"
+#include "merge.h"
 
 #include <stdio.h>
 
