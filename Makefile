@@ -8,14 +8,14 @@ CFLAGS = -fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -Qun
 EXE = test
 
 # space-separated list of header files
-HDRS = insertion.h merge.h stdsort.h
+HDRS = Header/insertion.h Header/merge.h Header/stdsort.h
 
 # space-separated list of libraries, if any,
 # each of which should be prefixed with -l
 LIBS =
 
 # space-separated list of source files
-SRCS = test.c insertion.c merge.c stdsort.c
+SRCS = test.c Header/insertion.c Header/merge.c Header/stdsort.c
 
 # automatically generated list of object files
 OBJS = $(SRCS:.c=.o)
