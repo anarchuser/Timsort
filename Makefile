@@ -5,7 +5,7 @@ CC = clang
 CFLAGS = -fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -Qunused-arguments -std=c11 -Wall -Werror -Wextra -Wno-sign-compare -Wshadow
 
 # name for executable
-EXE = test
+EXE = sort
 
 # space-separated list of header files
 HDRS = Header/insertion.h Header/merge.h Header/stdsort.h
@@ -15,7 +15,7 @@ HDRS = Header/insertion.h Header/merge.h Header/stdsort.h
 LIBS =
 
 # space-separated list of source files
-SRCS = test.c Header/insertion.c Header/merge.c Header/stdsort.c
+SRCS = sort.c Header/insertion.c Header/merge.c Header/stdsort.c
 
 # automatically generated list of object files
 OBJS = $(SRCS:.c=.o)
