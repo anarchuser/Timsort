@@ -1,5 +1,7 @@
 // Header of Insertion Sort
 
+#include "stdsort.h"
+
 #include <stdbool.h>
 
 // Sorts an int array by reference

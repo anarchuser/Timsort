@@ -8,10 +8,7 @@
 //
 // See header file for detailed explanations
 
-#include "stdsort.h"
 #include "merge.h"
-
-#include <stdio.h>
 
 void mergeSort (int * arr, int length, bool order)
 {
@@ -25,8 +22,6 @@ void divide (int * arr, int left, int right, bool order)
 	{
 		// Calculates middle between left and right boundary
 		int middle = 0.5 * (left + right);
-
-		printf ("%i - %i - %i\n", left, middle, right);
 		
 		// Splits arr recursively in half
 		divide (arr, left, middle, order);
@@ -71,8 +66,8 @@ void merge (int * arr, int left, int middle, int right, bool order)
 	}
 
 	// Copy remaining elements from either sub1 or sub2 into arr
-	if (ind1 >= len1) cpyArr (& sub2 [ind2], len2 - ind2, arr [indMain]);
-	else cpyArr (& sub1 [ind1], len1 - ind1, arr [indMain]);
+	if (ind1 >= len1) cpyArr (& sub2 [ind2], len2 - ind2, & arr [indMain]);
+	else cpyArr (& sub1 [ind1], len1 - ind1, & arr [indMain]);
 }
 
 void ascMergeSort (int * arr, int length)

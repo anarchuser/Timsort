@@ -1,7 +1,8 @@
 // Header of Merge Sort
 
+#include "stdsort.h"
+
 #include <stdbool.h>
-#include <math.h>
 
 // Sorts an int array by reference
 // argv[1]: Pointer to this array

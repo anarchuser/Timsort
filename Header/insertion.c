@@ -6,7 +6,6 @@
 //
 // See header file for detailed explanations
 
-#include "stdsort.h"
 #include "insertion.h"
 
 void insertionSort (int * arr, int length, bool order)
