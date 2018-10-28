@@ -2,6 +2,7 @@
 
 #include "stdsort.h"
 #include "insertion.h"
+#include "merge.h"
 
 #include <stdbool.h>
 
@@ -14,10 +15,7 @@
 void IMSort (int * arr, int length, bool order);
 
 // Divides arr in subarrays left..middle and middle..right and sorts them
-void divide (int * arr, int left, int right, bool order);
-
-// Merges two (sorted) subarrays together
-void merge (int * arr, int left, int middle, int right, bool order);
+void split (int * arr, int left, int right, bool order);
 
 // Sorts an array by reference, in ascending order
 void ascIMSort (int * arr, int length);
