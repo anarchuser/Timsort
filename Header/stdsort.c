@@ -25,3 +25,11 @@ int getRandNum (int min, int max)
 {
 	return (long long) rand() % (int) fabs((double) (max-min)) + min;
 }
+
+void cpyArr (int * source, int length, int * target)
+{
+	for (int i = 0; i < length; i++)
+	{
+		target [i] = source [i];
+	}
+}

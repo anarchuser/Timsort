@@ -16,3 +16,6 @@ void getRandArr (int * arr, int min, int max);
 // argv[1]: Minimum possible value
 // argv[2]: Maximum possible value
 int getRandNum (int min, int max);
+
+// Copies 'length' elements from source arr into target location
+void cpyArr (int * source, int length, int * target);
