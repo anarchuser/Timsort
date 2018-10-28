@@ -1,6 +1,6 @@
 #include "Header/stdsort.h"
 #include "Header/insertion.h"
-#include "Header/merge.h"
+#include "Header/insmerge.h"
 
 #include <stdio.h>
 
@@ -21,7 +21,9 @@ int main ()
 	printf("}\n");
 	
 	//ascInsSort (arr, LENGTH);
-	ascMergeSort (arr, LENGTH);
+	//ascMergeSort (arr, LENGTH);
+	//ascTimSort (arr, LENGTH);
+	ascIMSort (arr, LENGTH);
 	
 	printf("{");
 	for (int i = 0; i < LENGTH; i++)
