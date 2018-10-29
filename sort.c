@@ -3,34 +3,66 @@
 #include "Header/insmerge.h"
 
 #include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+#include <sys/resource.h>
+#include <sys/time.h>
 
-#define LENGTH 36
+double calculate(const struct rusage *b, const struct rusage *a);
 
-int main ()
+int main (int argc, char * argv [])
 {
-	//int arr [LENGTH] = {8,6,4,2,7,5,3,1};
-	int arr [LENGTH] = {4,35,76,34,12,10,3,98,8,67,58,17,26,39,75,86,14,36,97,48,76,38,16,24,28,68,75,94,55,17,33,21,11,99,17,31};
-	//int arr [LENGTH];
-	//getRandArr (& arr [0], 0, 100);
-	
-	printf("{");
-	for (int i = 0; i < LENGTH; i++)
+	char * prgm = argv [0];
+	if (argc != 4)
 	{
-		printf("%i, ", arr[i]);
+		printf("Syntax: %s [algorithm] [arrLength] [sortingOrder]\n", prgm);
+		return 1;
 	}
-	printf("}\n");
+
+	char * length = argv [2];
+	int LENGTH = strToInt (length, 6);
+
+	int arr [LENGTH];
+	getRandArr(arr, LENGTH);
 	
-	//ascInsSort (arr, LENGTH);
-	//ascMergeSort (arr, LENGTH);
-	//ascTimSort (arr, LENGTH);
-	ascIMSort (arr, LENGTH);
+	//pprint (arr, LENGTH);
 	
-	printf("{");
-	for (int i = 0; i < LENGTH; i++)
-	{
-		printf("%i, ", arr[i]);
-	}
-	printf("}\n");
+	char * sort = argv [1];
+	bool order = argv[3];
+
+	printf("Starting '%s' algorithm...\n", sort);
+
+	struct rusage before, after;
+
+	getrusage (RUSAGE_SELF, & before);
+
+	if (strcmp(sort, "insertion") == 0) insertionSort (arr, LENGTH, order);
+	else if (strcmp(sort, "merge") == 0) mergeSort (arr, LENGTH, order);
+	else if (strcmp(sort, "insmerge") == 0) IMSort (arr, LENGTH, order);
+	else printf("%s not found\n", sort);//timSort (arr, LENGTH, order);
+	
+	getrusage (RUSAGE_SELF, & after);
+
+	printf("Time in seconds: %lf\n", calculate (& before, & after));
+
+	//pprint (arr, LENGTH);
 
 	return 0;
+}
+
+// Taken from cs50's pset5 speller.c implementation
+double calculate(const struct rusage *b, const struct rusage *a)
+{
+    if (b == NULL || a == NULL)
+    {
+        return 0.0;
+    }
+    else
+    {
+        return ((((a->ru_utime.tv_sec * 1000000 + a->ru_utime.tv_usec) -
+                  (b->ru_utime.tv_sec * 1000000 + b->ru_utime.tv_usec)) +
+                 ((a->ru_stime.tv_sec * 1000000 + a->ru_stime.tv_usec) -
+                  (b->ru_stime.tv_sec * 1000000 + b->ru_stime.tv_usec)))
+                / 1000000.0);
+    }
 }

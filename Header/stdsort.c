@@ -11,19 +11,15 @@ void swap (int * a, int * b)
 	* b = tmp;
 }
 
-void getRandArr (int * arr, int min, int max)
+void pprint (int * arr, int length)
 {
-	int length = sizeof(arr) / sizeof(int);
+	printf("{");
 	for (int i = 0; i < length; i++)
 	{
-		arr [i] = getRandNum (min, max);
+		printf("%i", arr [i]);
+		if (i < length - 1) printf(", ");
 	}
-}
-
-//TODO: Fix random generator
-int getRandNum (int min, int max)
-{
-	return (long long) rand() % (int) fabs((double) (max-min)) + min;
+	printf("}\n");
 }
 
 void cpyArr (int * source, int length, int * target)
@@ -32,4 +28,68 @@ void cpyArr (int * source, int length, int * target)
 	{
 		target [i] = source [i];
 	}
+}
+
+int strToInt (char * str, int length)
+{
+	int sum = 0;
+	int factor = 1;
+
+	for (int i = length - 2; i >= 0; i--)
+	{
+		sum += factor * (str [i] - 48);
+		factor = factor * 10;
+	}
+	return sum;
+}		
+
+void getRandArr (int * arr, int length, bool refresh)
+{
+	if (refresh) initRandNum ();
+
+	// Open that file for read
+	FILE * fp = fopen ("randNums.txt", "r");
+	
+	// Max length (32768) of int in string representation
+	char number [6];
+	int numIndex = 0;
+	int arrIndex = 0;
+
+	// Iterate over it and add the ints to the arr
+	for (char c = fgetc (fp); c != EOF; c = fgetc (fp)) 
+	{
+		if (c >= '0' && c <= '9')
+		{
+			number [numIndex] = c;
+			numIndex++;
+		}
+		else if (c == '\n')
+		{
+			// Add word to arr
+			arr [arrIndex] = strToInt (number, 6);
+			arrIndex++;
+			
+			// Reset word
+			number [0] = '\0';
+			numIndex = 0;
+		}
+	}
+}
+
+void initRandNum (int amount)
+{
+	// Use BASH to generate random ints inside randNums.txt
+	system ("echo $RANDOM > randNums.txt");
+	for (int i = 0; i < amount - 2; i++)
+	{
+		system("echo $RANDOM >> randNums.txt");
+	}
+}
+
+// TODO Add Boundaries
+int getRandNum ()
+{
+	int * tmp;
+	getRandArr (tmp, 1, true);
+	return tmp [0];
 }
