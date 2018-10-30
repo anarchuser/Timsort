@@ -6,6 +6,7 @@
 //
 // See header file for detailed explanations
 
+#include "config.h"
 #include "insertion.h"
 
 void insertionSort (int * arr, int length, bool order)

@@ -1,9 +1,33 @@
 // Header of standard sort functions
 
-#include <math.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdbool.h>
+#ifndef STDSORT_H_
+#define STDSORT_H_
+
+// Structure to store runs in (used by e.g. Tim Sort)
+// * ptr:	pointer to where the run is in an array
+// length:	length of this run
+typedef struct run
+{
+	int * ptr;
+	int length;
+} Run;
+
+// Structure to store runs structured >> stack
+// * run:	Array of elements in the stack
+// index:	Next free index to put an element into
+// length:	Max number of elements in stack
+typedef struct stack
+{
+	Run * run;
+	int index;
+	int length;
+} Stack;
+
+// Initializes stack with index as 0
+void initStack (Stack stack, int index, int runSize);
+
+// Pushes an element (Run) on top of the stack
+void push (Run run, Stack stack);
 
 // Swaps the value of two int pointers
 void swap (int * a, int * b);
@@ -29,3 +53,5 @@ int getRandNum ();
 
 // Copies 'length' elements from source arr into target location
 void cpyArr (int * source, int length, int * target);
+
+#endif

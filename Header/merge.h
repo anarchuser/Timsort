@@ -1,8 +1,7 @@
 // Header of Merge Sort
 
-#include "stdsort.h"
-
-#include <stdbool.h>
+#ifndef MERGE_H_
+#define MERGE_H_
 
 // Sorts an int array by reference
 // argv[1]: Pointer to this array
@@ -21,3 +20,5 @@ void ascMergeSort (int * arr, int length);
 
 // Sorts an array by reference, in descending order
 void descMergeSort (int * arr, int length);
+
+#endif

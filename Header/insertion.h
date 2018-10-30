@@ -1,8 +1,7 @@
 // Header of Insertion Sort
 
-#include "stdsort.h"
-
-#include <stdbool.h>
+#ifndef INSERTION_H_
+#define INSERTION_H_
 
 // Sorts an int array by reference
 // argv[1]: Pointer to this array
@@ -15,3 +14,5 @@ void ascInsSort (int * arr, int length);
 
 // Sorts an array by reference, in descending order
 void descInsSort (int * arr, int length);
+
+#endif

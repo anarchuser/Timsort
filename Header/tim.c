@@ -8,15 +8,8 @@
 // ascTimSort:	sorts in ascending order
 // descTimSort:	sorts in descending order
 
+#include "config"
 #include "tim.h"
-
-#define BARRIER 64	// For lengths below this number, Tim Sort performs an Insertion Sort
-
-struct Stack
-{
-	int * start;
-	int length;
-} stack;
 
 void timSort (int * arr, int length, bool order)
 {
@@ -30,23 +23,32 @@ void timSort (int * arr, int length, bool order)
 
 void startTimSort (int * arr, int length, bool order)
 {
+	// Calculate minRun between 32 and 64 depending on the length of the array
+	int minRun = calcMinRun (length);
+
 	// Current position in the array
 	int index = 0;
 
-	// Stack + newest element
-	stack * run;
-	int indexStack = 0;
+	// Initialize a stack to store runs into
+	Stack stack;
+	initStack (stack, 0, calcNumOfRuns (length, minRun));
 
 	// Cache. Contains three newest elements
-	stack cache [3];
+	Stack cache;
+	initStack (cache, 0, 3);
 
-	// Calculate minRun between 32 and 64 depending on the length of the array
-	int minRun = calcMinRun (length);
+	splitNsort (arr, length, order, 
 }
 
+// TODO Fix minRun calculation!!
 int calcMinRun (int length);
 {
-	
+	return MIN_RUN;
+}
+
+int calcNumOfRuns (int length, int minRun)
+{
+	return ceil (length / minRun);
 }
 
 void run (int * arr, int length, bool order)

@@ -8,7 +8,7 @@ CFLAGS = -fsanitize=signed-integer-overflow -fsanitize=undefined -ggdb3 -O0 -std
 EXE = sort
 
 # space-separated list of header files
-HDRS = Header/insertion.h Header/merge.h Header/insmerge.h Header/stdsort.h
+HDRS = Header/config.h Header/insertion.h Header/merge.h Header/insmerge.h Header/stdsort.h
 
 # space-separated list of libraries, if any,
 # each of which should be prefixed with -l

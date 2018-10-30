@@ -10,6 +10,7 @@
 //
 // See header file for detailed explanations
 
+#include "config.h"
 #include "insmerge.h"
 
 void IMSort (int * arr, int length, bool order)

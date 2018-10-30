@@ -2,7 +2,20 @@
 //
 // See header file for detailed explanation
 
+#include "config.h"
 #include "stdsort.h"
+
+void initStack (Stack stack, int index, int runSize)
+{
+	stack.index = index;
+	stack.length = runSize;
+}
+
+void push (Run run, Stack stack)
+{
+	stack [stack.index] = run;
+	index++;
+}
 
 void swap (int * a, int * b)
 {
@@ -45,7 +58,7 @@ int strToInt (char * str, int length)
 
 void getRandArr (int * arr, int length, bool refresh)
 {
-	if (refresh) initRandNum ();
+	if (refresh) initRandNum (length);
 
 	// Open that file for read
 	FILE * fp = fopen ("randNums.txt", "r");

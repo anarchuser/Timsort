@@ -1,12 +1,11 @@
 // Header of Hybrid Insertion + Merge Sort
 
-#include "stdsort.h"
-#include "insertion.h"
-#include "merge.h"
+#ifndef INSMERGE_H_
+#define INSMERGE_H_
 
-#include <stdbool.h>
+#include "config.h"
 
-#define BOUNDARY 16
+#define BOUNDARY 32
 
 // Sorts an int array by reference
 // argv[1]: Pointer to this array
@@ -22,3 +21,5 @@ void ascIMSort (int * arr, int length);
 
 // Sorts an array by reference, in descending order
 void descIMSort (int * arr, int length);
+
+#endif
