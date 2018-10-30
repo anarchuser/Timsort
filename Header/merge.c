@@ -32,6 +32,7 @@ void divide (int * arr, int left, int right, bool order)
 		merge (arr, left, middle, right, order);
 	}
 }
+
 void merge (int * arr, int left, int middle, int right, bool order)
 {
 	// Calculate length of subarrays
