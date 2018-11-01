@@ -15,7 +15,7 @@ HDRS = Header/config.h Header/insertion.h Header/merge.h Header/insmerge.h Heade
 LIBS =
 
 # space-separated list of source files
-SRCS = sort.c Header/insertion.c Header/merge.c Header/insmerge.c Header/stdsort.c
+SRCS = sort.c Source/insertion.c Source/merge.c Source/insmerge.c Source/stdsort.c
 
 # automatically generated list of object files
 OBJS = $(SRCS:.c=.o)

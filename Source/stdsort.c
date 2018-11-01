@@ -2,9 +2,9 @@
 //
 // See header file for detailed explanation
 
-#include "config.h"
-#include "stdsort.h"
-
+#include "../Header/config.h"
+#include "../Header/stdsort.h"
+/*
 void initStack (Stack stack, int index, int runSize)
 {
 	stack.index = index;
@@ -16,7 +16,7 @@ void push (Run run, Stack stack)
 	stack [stack.index] = run;
 	index++;
 }
-
+*/
 void swap (int * a, int * b)
 {
 	int tmp = * a;

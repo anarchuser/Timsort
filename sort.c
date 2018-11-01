@@ -3,6 +3,9 @@
 #include <sys/resource.h>
 #include <sys/time.h>
 
+#define LOG_LENGTH 7
+#define MIX false
+
 double calculate(const struct rusage *b, const struct rusage *a);
 
 int main (int argc, char * argv [])
@@ -18,7 +21,7 @@ int main (int argc, char * argv [])
 	else if (argc == 4)
 	{
 		char * length = argv [2];
-		int LENGTH = strToInt (length, 9);
+		int LENGTH = strToInt (length, LOG_LENGTH);
 
 		int arr [LENGTH];
 		getRandArr (arr, LENGTH, true);	
@@ -42,10 +45,10 @@ int main (int argc, char * argv [])
 	else
 	{
 		char * length = argv [1];
-		int LENGTH = strToInt (length, 6);
+		int LENGTH = strToInt (length, LOG_LENGTH);
 		bool order = argv [2];
 		int arr [LENGTH];
-		getRandArr (arr, LENGTH, false);
+		getRandArr (arr, LENGTH, MIX);
 		
 		for (int i = 0; i < 3; i++)
 		{
@@ -57,16 +60,16 @@ int main (int argc, char * argv [])
 					mergeSort (arr, LENGTH, order);
 					getRandArr (arr, LENGTH, false);
 					break;
-				/*case 1:
-					printf("Testing Insertion Sort...\n");
-					getrusage (RUSAGE_SELF, &before);
-					insertionSort (arr, LENGTH, order);
-					getRandArr (arr, LENGTH, false);
-					break;*/
-				case 2:
+				case 1:
 					printf("Testing Insertion-Merge - Hybrid...\n");
 					getrusage (RUSAGE_SELF, &before);
 					IMSort (arr, LENGTH, order);
+					getRandArr (arr, LENGTH, false);
+					break;
+				case 2:
+					printf("Testing Insertion Sort...\n");
+					getrusage (RUSAGE_SELF, &before);
+					insertionSort (arr, LENGTH, order);
 					getRandArr (arr, LENGTH, false);
 					break;
 			}

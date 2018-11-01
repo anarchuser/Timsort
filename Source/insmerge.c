@@ -10,13 +10,13 @@
 //
 // See header file for detailed explanations
 
-#include "config.h"
-#include "insmerge.h"
+#include "../Header/config.h"
+#include "../Header/insmerge.h"
 
 void IMSort (int * arr, int length, bool order)
 {
 	// Calls with left- and rightmost index of arr
-	divide (arr, 0, length - 1, order);
+	split (arr, 0, length - 1, order);
 }
 
 void split (int * arr, int left, int right, bool order)

@@ -8,8 +8,8 @@
 // ascTimSort:	sorts in ascending order
 // descTimSort:	sorts in descending order
 
-#include "config"
-#include "tim.h"
+#include "../Header/config"
+#include "../Header/tim.h"
 
 void timSort (int * arr, int length, bool order)
 {

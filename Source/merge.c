@@ -8,8 +8,8 @@
 //
 // See header file for detailed explanations
 
-#include "config.h"
-#include "merge.h"
+#include "../Header/config.h"
+#include "../Header/merge.h"
 
 void mergeSort (int * arr, int length, bool order)
 {

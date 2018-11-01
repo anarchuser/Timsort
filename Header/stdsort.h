@@ -2,7 +2,7 @@
 
 #ifndef STDSORT_H_
 #define STDSORT_H_
-
+/*
 // Structure to store runs in (used by e.g. Tim Sort)
 // * ptr:	pointer to where the run is in an array
 // length:	length of this run
@@ -28,7 +28,7 @@ void initStack (Stack stack, int index, int runSize);
 
 // Pushes an element (Run) on top of the stack
 void push (Run run, Stack stack);
-
+*/
 // Swaps the value of two int pointers
 void swap (int * a, int * b);
 
